@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS `boisson`;
 CREATE TABLE IF NOT EXISTS `boisson` (
   `id_boisson` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `prix` decimal(5,2) NOT NULL,
   `id_marque` int NOT NULL,
   PRIMARY KEY (`id_boisson`),
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `focaccia` (
   `id_focaccia` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prix` decimal(5,2) NOT NULL,
-  `ingrédients` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ingrédients` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id_focaccia`),
   UNIQUE KEY `nom` (`nom`)
 ) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -59,6 +59,10 @@ INSERT INTO `focaccia` (`id_focaccia`, `nom`, `prix`, `ingrédients`) VALUES
 (36, '', 0.00, 'Mozarella : 50');
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 -- Structure de la table `ingredient`
 --
 
@@ -75,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
 --
 
 INSERT INTO `ingredient` (`id_ingredient`, `nom`) VALUES
-(2, 'Ananas'),
 (1, 'Ail'),
+(2, 'Ananas'),
 (3, 'Artichaut'),
 (4, 'Bacon'),
 (5, 'Base Tomate'),
@@ -102,6 +106,10 @@ INSERT INTO `ingredient` (`id_ingredient`, `nom`) VALUES
 (25, 'Mozarella');
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 -- Structure de la table `marque`
 --
 
@@ -111,17 +119,19 @@ CREATE TABLE IF NOT EXISTS `marque` (
   `nom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id_marque`),
   UNIQUE KEY `nom` (`nom`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `marque`
 --
 
 INSERT INTO `marque` (`id_marque`, `nom`) VALUES
-(5, 'nom_marque'),
+(1, 'Coca-cola'),
 (2, 'Cristalline'),
 (3, 'Monster'),
-(4, 'Pepsico'),
-(1, 'Coca-cola');
+(4, 'Pepsico');
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
